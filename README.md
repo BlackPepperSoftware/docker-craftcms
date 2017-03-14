@@ -6,7 +6,7 @@ Docker image for [Craft CMS](https://craftcms.com/). Available on Docker Hub as 
 
 First start a MySQL database for Craft:
 
-```
+```Shell
 docker run --name database \
 	-e MYSQL_ROOT_PASSWORD=password \
 	-e MYSQL_USER=craft \
@@ -17,7 +17,7 @@ docker run --name database \
 
 Then run Craft:
 
-```
+```Shell
 docker run --name craftcms \
 	-e CRAFT_DATABASE_HOST=database \
 	-e CRAFT_DATABASE_USER=craft \
@@ -29,3 +29,45 @@ docker run --name craftcms \
 ```
 
 Visit http://localhost:8080/admin to create a site.
+
+### Docker Compose
+
+Alternatively use Docker Compose:
+
+```YAML
+site:
+  build: site
+  environment:
+    CRAFT_DATABASE_HOST: database
+    CRAFT_DATABASE_USER: craft
+    CRAFT_DATABASE_PASSWORD: password
+    CRAFT_DATABASE_NAME: craft
+  links:
+    - database
+  ports:
+    - "8080:80"
+
+database:
+  image: mariadb:10
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_USER: craft
+    MYSQL_PASSWORD: password
+    MYSQL_DATABASE: craft
+  ports:
+    - "3306:3306"
+```
+
+## Customisation
+
+Use as a base image to customise Craft templates and public assets:
+
+```Dockerfile
+FROM blackpepper/craftcms
+
+ADD public /var/www/html
+ADD templates /var/www/craft/templates
+```
+
+Put [Craft files](https://craftcms.com/docs/folder-structure) under `/var/www/craft` and
+[public assets](https://craftcms.com/docs/installing#step-1-upload-the-files) under `/var/www/html`.
