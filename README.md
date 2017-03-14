@@ -35,8 +35,8 @@ Visit http://localhost:8080/admin to create a site.
 Alternatively use Docker Compose:
 
 ```YAML
-site:
-  build: site
+craftcms:
+  image: blackpepper/craftcms
   environment:
     CRAFT_DATABASE_HOST: database
     CRAFT_DATABASE_USER: craft
