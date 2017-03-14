@@ -1,2 +1,2 @@
-# docker-craft
+# docker-craftcms
 Docker image for Craft CMS.
