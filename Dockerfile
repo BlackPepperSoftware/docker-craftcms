@@ -1,8 +1,9 @@
 FROM php:7-apache
 
-ENV CRAFT_VERSION 2.6
-ENV CRAFT_BUILD 2966
-ENV CRAFT_ZIP Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
+ENV CRAFT_VERSION=2.6 \
+	CRAFT_BUILD=2966
+
+ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
 
 RUN apt-get update \
 	&& apt-get install -yq unzip libmcrypt-dev libmagickwand-dev \
