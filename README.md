@@ -62,12 +62,12 @@ database:
 
 Use the following environment variables to configure Craft at runtime:
 
-Name | Description
------|------------
-`CRAFT_DATABASE_HOST` | The database server name or IP address
-`CRAFT_DATABASE_USER` | The database username to connect with
-`CRAFT_DATABASE_PASSWORD` | The database password to connect with
-`CRAFT_DATABASE_NAME` | The name of the database to select
+Name | Craft Setting | Description
+-----|---------------|------------
+`CRAFT_DATABASE_HOST` | [server](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The database server name or IP address
+`CRAFT_DATABASE_USER` | [user](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The database username to connect with
+`CRAFT_DATABASE_PASSWORD` | [password](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The database password to connect with
+`CRAFT_DATABASE_NAME` | [database](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The name of the database to select
 
 ## Customisation
 
