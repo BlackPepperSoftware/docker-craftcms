@@ -5,7 +5,8 @@ ENV CRAFT_VERSION=2.6 \
 	CRAFT_DATABASE_HOST=localhost \
 	CRAFT_DATABASE_USER=root \
 	CRAFT_DATABASE_PASSWORD= \
-	CRAFT_DATABASE_NAME=
+	CRAFT_DATABASE_NAME= \
+	CRAFT_OMIT_SCRIPT_NAME_IN_URLS=auto
 
 ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
 
@@ -27,8 +28,8 @@ RUN unzip -q /tmp/$CRAFT_ZIP -d /var/www/ \
 	&& mv /var/www/html/htaccess /var/www/html/.htaccess \
 	&& rmdir /var/www/public
 
-# Allow database connection to be configured with environment variables
-ADD db.php /var/www/craft/config/
+# Allow Craft to be configured with environment variables
+ADD db.php general.php /var/www/craft/config/
 
 RUN chown -R www-data:www-data \
 	/var/www/craft/app/ \
