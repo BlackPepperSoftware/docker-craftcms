@@ -1,15 +1,5 @@
 FROM php:7-apache
 
-ENV CRAFT_VERSION=2.6 \
-	CRAFT_BUILD=2966 \
-	CRAFT_DATABASE_HOST=localhost \
-	CRAFT_DATABASE_USER=root \
-	CRAFT_DATABASE_PASSWORD= \
-	CRAFT_DATABASE_NAME= \
-	CRAFT_OMIT_SCRIPT_NAME_IN_URLS=auto
-
-ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
-
 RUN apt-get update \
 	&& apt-get install -yq unzip libmcrypt-dev libmagickwand-dev \
 	&& docker-php-ext-install pdo_mysql mcrypt \
@@ -19,6 +9,16 @@ RUN apt-get update \
 
 # Enable .htaccess
 RUN a2enmod rewrite
+
+ENV CRAFT_VERSION=2.6 \
+	CRAFT_BUILD=2966 \
+	CRAFT_DATABASE_HOST=localhost \
+	CRAFT_DATABASE_USER=root \
+	CRAFT_DATABASE_PASSWORD= \
+	CRAFT_DATABASE_NAME= \
+	CRAFT_OMIT_SCRIPT_NAME_IN_URLS=auto
+
+ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
 
 ADD https://download.buildwithcraft.com/craft/$CRAFT_VERSION/$CRAFT_VERSION.$CRAFT_BUILD/$CRAFT_ZIP /tmp/$CRAFT_ZIP
 
