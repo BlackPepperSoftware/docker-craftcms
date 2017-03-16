@@ -58,6 +58,17 @@ database:
     - "3306:3306"
 ```
 
+## Configuration
+
+Use the following environment variables to configure Craft at runtime:
+
+Name | Description
+-----|------------
+`CRAFT_DATABASE_HOST` | The database server name or IP address
+`CRAFT_DATABASE_USER` | The database username to connect with
+`CRAFT_DATABASE_PASSWORD` | The database password to connect with
+`CRAFT_DATABASE_NAME` | The name of the database to select
+
 ## Customisation
 
 Use as a base image to customise Craft templates and public assets:
