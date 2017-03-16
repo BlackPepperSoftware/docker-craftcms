@@ -7,6 +7,7 @@
  * You can see a list of the default settings in craft/app/etc/config/defaults/general.php
  */
 
+$allowAutoUpdates = getenv('CRAFT_ALLOW_AUTO_UPDATES');
 $omitScriptNameInUrls = getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS');
 
 return array(
@@ -22,6 +23,11 @@ return array(
 
 	// Enable CSRF Protection (recommended, will be enabled by default in Craft 3)
 	'enableCsrfProtection' => true,
+
+	// Whether Craft updates will be auto-updatable
+	'allowAutoUpdates' => ($allowAutoUpdates === 'minor-only' || $allowAutoUpdates === 'build-only')
+		? $allowAutoUpdates
+		: ($allowAutoUpdates === 'true'),
 
 	// Whether "index.php" should be visible in URLs (true, false, "auto")
 	'omitScriptNameInUrls' => ($omitScriptNameInUrls === 'auto')

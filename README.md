@@ -68,6 +68,7 @@ Name | Craft Setting | Description
 `CRAFT_DATABASE_USER` | [user](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The database username to connect with
 `CRAFT_DATABASE_PASSWORD` | [password](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The database password to connect with
 `CRAFT_DATABASE_NAME` | [database](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The name of the database to select
+`CRAFT_ALLOW_AUTO_UPDATES` | [allowAutoUpdates](https://craftcms.com/docs/config-settings#allowAutoUpdates) | Whether Craft updates will be auto-updatable
 `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [omitScriptNameInUrls](https://craftcms.com/docs/config-settings#omitScriptNameInUrls) | Whether "index.php" should be visible in URLs
 
 ## Customisation
