@@ -12,32 +12,32 @@ $omitScriptNameInUrls = getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS');
 
 return array(
 
-	// Base site URL
-	'siteUrl' => null,
+	// Whether or not to allow auto-updating in Craft
+	'allowAutoUpdates' => ($allowAutoUpdates === 'minor-only' || $allowAutoUpdates === 'build-only')
+		? $allowAutoUpdates
+		: ($allowAutoUpdates === 'true'),
 
-	// Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
-	'environmentVariables' => array(),
+	// Control Panel trigger word
+	'cpTrigger' => 'admin',
 
 	// Default Week Start Day (0 = Sunday, 1 = Monday...)
 	'defaultWeekStartDay' => 0,
 
+	// Determines whether the system is in Dev Mode or not
+	'devMode' => getenv('CRAFT_DEV_MODE') === 'true',
+
 	// Enable CSRF Protection (recommended, will be enabled by default in Craft 3)
 	'enableCsrfProtection' => true,
 
-	// Whether Craft updates will be auto-updatable
-	'allowAutoUpdates' => ($allowAutoUpdates === 'minor-only' || $allowAutoUpdates === 'build-only')
-		? $allowAutoUpdates
-		: ($allowAutoUpdates === 'true'),
+	// Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
+	'environmentVariables' => array(),
 
 	// Whether "index.php" should be visible in URLs (true, false, "auto")
 	'omitScriptNameInUrls' => ($omitScriptNameInUrls === 'auto')
 		? $omitScriptNameInUrls
 		: ($omitScriptNameInUrls === 'true'),
 
-	// Control Panel trigger word
-	'cpTrigger' => 'admin',
-
-	// Dev Mode (see https://craftcms.com/support/dev-mode)
-	'devMode' => getenv('CRAFT_DEV_MODE') === 'true',
+	// Base site URL
+	'siteUrl' => null,
 
 );

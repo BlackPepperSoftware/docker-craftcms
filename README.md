@@ -64,13 +64,17 @@ Use the following environment variables to configure Craft at runtime:
 
 Name | Craft Setting | Description
 -----|---------------|------------
+**Database**
 `CRAFT_DATABASE_HOST` | [server](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The database server name or IP address
 `CRAFT_DATABASE_USER` | [user](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The database username to connect with
 `CRAFT_DATABASE_PASSWORD` | [password](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The database password to connect with
 `CRAFT_DATABASE_NAME` | [database](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database) | The name of the database to select
-`CRAFT_ALLOW_AUTO_UPDATES` | [allowAutoUpdates](https://craftcms.com/docs/config-settings#allowAutoUpdates) | Whether Craft updates will be auto-updatable
-`CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [omitScriptNameInUrls](https://craftcms.com/docs/config-settings#omitScriptNameInUrls) | Whether "index.php" should be visible in URLs
+**General**
 `CRAFT_DEV_MODE` | [devMode](https://craftcms.com/docs/config-settings#devMode) | Determines whether the system is in Dev Mode or not
+**Updates**
+`CRAFT_ALLOW_AUTO_UPDATES` | [allowAutoUpdates](https://craftcms.com/docs/config-settings#allowAutoUpdates) | Whether or not to allow auto-updating in Craft
+**URLs**
+`CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [omitScriptNameInUrls](https://craftcms.com/docs/config-settings#omitScriptNameInUrls) | Whether "index.php" should be visible in URLs
 
 ## Customisation
 
