@@ -8,6 +8,7 @@
  */
 
 $allowAutoUpdates = getenv('CRAFT_ALLOW_AUTO_UPDATES');
+$cooldownDuration = getenv('CRAFT_COOLDOWN_DURATION');
 $omitScriptNameInUrls = getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS');
 
 return array(
@@ -15,6 +16,8 @@ return array(
 	'allowAutoUpdates' => ($allowAutoUpdates === 'minor-only' || $allowAutoUpdates === 'build-only')
 		? $allowAutoUpdates
 		: ($allowAutoUpdates === 'true'),
+
+	'cooldownDuration' => ($cooldownDuration === 'false') ? false : $cooldownDuration,
 
 	'cpTrigger' => 'admin',
 

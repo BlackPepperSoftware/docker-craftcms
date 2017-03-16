@@ -76,6 +76,8 @@ Name | Craft Setting
 `CRAFT_ALLOW_AUTO_UPDATES` | [allowAutoUpdates](https://craftcms.com/docs/config-settings#allowAutoUpdates)
 **URLs**
 `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [omitScriptNameInUrls](https://craftcms.com/docs/config-settings#omitScriptNameInUrls)
+**Users**
+`CRAFT_COOLDOWN_DURATION` | [cooldownDuration](https://craftcms.com/docs/config-settings#cooldownDuration)
 
 ## Customisation
 
