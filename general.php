@@ -40,4 +40,7 @@ return array(
 	// Base site URL
 	'siteUrl' => null,
 
+	// Tells Craft whether to use compressed Javascript files whenever possible
+	'useCompressedJs' => getenv('CRAFT_USE_COMPRESSED_JS') === 'true',
+
 );
