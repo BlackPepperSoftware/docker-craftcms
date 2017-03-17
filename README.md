@@ -62,8 +62,8 @@ database:
 
 Use the following environment variables to configure Craft at runtime:
 
-Name | Craft Setting
------|--------------
+Variable Name | Craft Setting
+--------------|--------------
 **Database**
 `CRAFT_DATABASE_HOST` | [`server`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
 `CRAFT_DATABASE_USER` | [`user`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
