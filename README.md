@@ -65,11 +65,11 @@ Use the following environment variables to configure Craft at runtime:
 Section | Variable Name | Craft Setting
 --------|---------------|--------------
 **Database** | `CRAFT_DATABASE_HOST` | [`server`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| `CRAFT_DATABASE_USER` | [`user`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| `CRAFT_DATABASE_PASSWORD` | [`password`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| `CRAFT_DATABASE_NAME` | [`database`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
+| | `CRAFT_DATABASE_USER` | [`user`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
+| | `CRAFT_DATABASE_PASSWORD` | [`password`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
+| | `CRAFT_DATABASE_NAME` | [`database`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
 **General** | `CRAFT_DEV_MODE` | [`devMode`](https://craftcms.com/docs/config-settings#devMode)
-| `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://craftcms.com/docs/config-settings#useCompressedJs)
+| | `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://craftcms.com/docs/config-settings#useCompressedJs)
 **Updates** | `CRAFT_ALLOW_AUTO_UPDATES` | [`allowAutoUpdates`](https://craftcms.com/docs/config-settings#allowAutoUpdates)
 **URLs** | `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://craftcms.com/docs/config-settings#omitScriptNameInUrls)
 **Users** | `CRAFT_COOLDOWN_DURATION` | [`cooldownDuration`](https://craftcms.com/docs/config-settings#cooldownDuration)
