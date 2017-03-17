@@ -11,6 +11,8 @@ return array(
 
 	'server' => getenv('CRAFT_DATABASE_HOST'),
 
+	'port' => getenv('CRAFT_DATABASE_PORT'),
+
 	'database' => getenv('CRAFT_DATABASE_NAME'),
 
 	'user' => getenv('CRAFT_DATABASE_USER'),
