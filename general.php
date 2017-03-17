@@ -29,6 +29,8 @@ return array(
 
 	'environmentVariables' => array(),
 
+	'maxUploadFileSize' => getenv('CRAFT_MAX_UPLOAD_FILE_SIZE'),
+
 	'omitScriptNameInUrls' => ($omitScriptNameInUrls === 'auto')
 		? $omitScriptNameInUrls
 		: ($omitScriptNameInUrls === 'true'),
