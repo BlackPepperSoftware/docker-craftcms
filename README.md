@@ -83,8 +83,8 @@ Use as a base image to customise Craft templates and public assets:
 ```Dockerfile
 FROM blackpepper/craftcms
 
-ADD public /var/www/html
 ADD templates /var/www/craft/templates
+ADD public /var/www/html
 ```
 
 Put [Craft files](https://craftcms.com/docs/folder-structure) under `/var/www/craft` and
