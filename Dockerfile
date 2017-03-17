@@ -1,5 +1,7 @@
 FROM php:7-apache
 
+LABEL maintainer "Mark Hobson <mark.hobson@blackpepper.co.uk>"
+
 RUN apt-get update \
 	&& apt-get install -yq unzip libmcrypt-dev libmagickwand-dev \
 	&& docker-php-ext-install pdo_mysql mcrypt \
