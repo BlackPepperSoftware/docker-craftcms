@@ -10,6 +10,7 @@
 $allowAutoUpdates = getenv('CRAFT_ALLOW_AUTO_UPDATES');
 $cooldownDuration = getenv('CRAFT_COOLDOWN_DURATION');
 $omitScriptNameInUrls = getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS');
+$siteUrl = getenv('CRAFT_SITE_URL');
 
 return array(
 
@@ -35,7 +36,7 @@ return array(
 		? $omitScriptNameInUrls
 		: ($omitScriptNameInUrls === 'true'),
 
-	'siteUrl' => null,
+	'siteUrl' => $siteUrl ? $siteUrl : null,
 
 	'useCompressedJs' => getenv('CRAFT_USE_COMPRESSED_JS') === 'true',
 
