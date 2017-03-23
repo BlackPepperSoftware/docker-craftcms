@@ -75,6 +75,7 @@ General | `CRAFT_DEV_MODE` | [`devMode`](https://craftcms.com/docs/config-settin
 Updates | `CRAFT_ALLOW_AUTO_UPDATES` | [`allowAutoUpdates`](https://craftcms.com/docs/config-settings#allowAutoUpdates)
 URLs | `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://craftcms.com/docs/config-settings#omitScriptNameInUrls)
 Users | `CRAFT_COOLDOWN_DURATION` | [`cooldownDuration`](https://craftcms.com/docs/config-settings#cooldownDuration)
+| | `CRAFT_USER_SESSION_DURATION` | [`userSessionDuration`](https://craftcms.com/docs/config-settings#userSessionDuration)
 Assets | `CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://craftcms.com/docs/config-settings#maxUploadFileSize)
 
 ## Customisation
