@@ -13,7 +13,7 @@ RUN apt-get update \
 RUN a2enmod rewrite
 
 ENV CRAFT_VERSION=2.6 \
-	CRAFT_BUILD=2967
+	CRAFT_BUILD=2968
 ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
 
 ADD https://download.buildwithcraft.com/craft/$CRAFT_VERSION/$CRAFT_VERSION.$CRAFT_BUILD/$CRAFT_ZIP /tmp/$CRAFT_ZIP
