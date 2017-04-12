@@ -1,4 +1,4 @@
-FROM php:7-apache
+FROM php:7.0-apache
 
 LABEL maintainer "Mark Hobson <mark.hobson@blackpepper.co.uk>"
 
