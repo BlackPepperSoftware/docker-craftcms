@@ -1,0 +1,22 @@
+site:
+  build: site
+  environment:
+    CRAFT_DATABASE_HOST: database
+    CRAFT_DATABASE_USER: craft
+    CRAFT_DATABASE_PASSWORD: password
+    CRAFT_DATABASE_NAME: craft
+    CRAFT_SITE_URL: http://localhost:8080/
+  links:
+    - database
+  ports:
+    - "8080:80"
+
+database:
+  image: mariadb:10
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_USER: craft
+    MYSQL_PASSWORD: password
+    MYSQL_DATABASE: craft
+  ports:
+    - "3306:3306"
