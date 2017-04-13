@@ -58,6 +58,8 @@ database:
     - "3306:3306"
 ```
 
+See the [demo](demo) project to see this in action.
+
 ## Configuration
 
 Use the following environment variables to configure Craft at runtime:
