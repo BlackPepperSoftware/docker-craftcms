@@ -11,10 +11,11 @@ This project demonstrates how to use `blackpepper/craftcms` with Docker Compose 
 
 ## Customisations
 
-The site's `Dockerfile` overlays the following directories on top of the standard Craft installation:
+The site's [Dockerfile](site/Dockerfile) overlays the following directories on top of the standard Craft installation:
 
-* `public` — web assets
-* `templates` — Craft site templates
+* [public](site/public) — web assets
+* [templates](site/templates) — Craft site templates
 
-In this demonstration we add a `public/newspaper.png` web asset and reference it from the `templates/index.html` index
-template. You can see this image by visiting the site at http://localhost:8080/.
+In this demonstration we add a [newspaper.png](site/public/newspaper.png) web asset and reference it from the
+[index.html](site/templates/index.html) index template. You can see this image by visiting the site at
+http://localhost:8080/.
