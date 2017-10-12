@@ -1,10 +1,10 @@
-FROM php:7.0-apache
+FROM php:7.1-apache
 
 LABEL maintainer "Mark Hobson <mark.hobson@blackpepper.co.uk>"
 
 RUN apt-get update \
 	&& apt-get install -yq unzip libmcrypt-dev libmagickwand-dev \
-	&& docker-php-ext-install pdo_mysql mcrypt \
+	&& docker-php-ext-install zip pdo_mysql mcrypt \
 	&& pecl install imagick \
 	&& docker-php-ext-enable imagick \
 	&& rm -rf /var/lib/apt/lists/*
