@@ -93,3 +93,18 @@ ADD public /var/www/html
 
 Put [Craft files](https://craftcms.com/docs/folder-structure) under `/var/www/craft` and
 [public assets](https://craftcms.com/docs/installing#step-1-upload-the-files) under `/var/www/html`.
+
+## Version
+
+This image aspires to track the latest build of Craft CMS 2.6. Use the following build arguments to customise the Craft CMS version at build time:
+
+Argument        | Description
+----------------|----------------------------------------
+`CRAFT_VERSION` | The major and minor version, e.g. `2.6`
+`CRAFT_BUILD`   | The build number, e.g. `2999`
+
+For example, to build an image for Craft CMS version 2.6.2999:
+
+```Shell
+docker build --build-arg CRAFT_VERSION=2.6 --build-arg CRAFT_BUILD=2999 .
+```
