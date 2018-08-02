@@ -1,10 +1,10 @@
 site:
   build: site
   environment:
-    CRAFT_DATABASE_HOST: database
-    CRAFT_DATABASE_USER: craft
-    CRAFT_DATABASE_PASSWORD: password
-    CRAFT_DATABASE_NAME: craft
+    DB_SERVER: database
+    DB_USER: craft
+    DB_PASSWORD: password
+    DB_DATABASE: craft
     CRAFT_SITE_URL: http://localhost:8080/
   links:
     - database

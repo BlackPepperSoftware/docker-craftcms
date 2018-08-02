@@ -13,34 +13,33 @@ $omitScriptNameInUrls = getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS');
 $siteUrl = getenv('CRAFT_SITE_URL');
 $userSessionDuration = getenv('CRAFT_USER_SESSION_DURATION');
 
-return array(
+return [
+    // Global settings
+    '*' => [
+        'allowUpdates' => ($allowAutoUpdates === 'minor-only' || $allowAutoUpdates === 'build-only')
+            ? $allowAutoUpdates
+            : ($allowAutoUpdates === 'true'),
 
-	'allowAutoUpdates' => ($allowAutoUpdates === 'minor-only' || $allowAutoUpdates === 'build-only')
-		? $allowAutoUpdates
-		: ($allowAutoUpdates === 'true'),
+        'cooldownDuration' => ($cooldownDuration === 'false') ? false : $cooldownDuration,
 
-	'cooldownDuration' => ($cooldownDuration === 'false') ? false : $cooldownDuration,
+        'cpTrigger' => 'admin',
 
-	'cpTrigger' => 'admin',
+        'defaultWeekStartDay' => 0,
 
-	'defaultWeekStartDay' => 0,
+        'devMode' => getenv('CRAFT_DEV_MODE') === 'true',
 
-	'devMode' => getenv('CRAFT_DEV_MODE') === 'true',
+        'enableCsrfProtection' => true,
 
-	'enableCsrfProtection' => true,
+        'maxUploadFileSize' => getenv('CRAFT_MAX_UPLOAD_FILE_SIZE'),
 
-	'environmentVariables' => array(),
+        'omitScriptNameInUrls' => ($omitScriptNameInUrls === 'auto')
+            ? $omitScriptNameInUrls
+            : ($omitScriptNameInUrls === 'true'),
 
-	'maxUploadFileSize' => getenv('CRAFT_MAX_UPLOAD_FILE_SIZE'),
+        'siteUrl' => $siteUrl ? $siteUrl : null,
 
-	'omitScriptNameInUrls' => ($omitScriptNameInUrls === 'auto')
-		? $omitScriptNameInUrls
-		: ($omitScriptNameInUrls === 'true'),
+        'useCompressedJs' => getenv('CRAFT_USE_COMPRESSED_JS') === 'true',
 
-	'siteUrl' => $siteUrl ? $siteUrl : null,
-
-	'useCompressedJs' => getenv('CRAFT_USE_COMPRESSED_JS') === 'true',
-
-	'userSessionDuration' => ($userSessionDuration === 'false') ? false : $userSessionDuration
-
-);
+        'userSessionDuration' => ($userSessionDuration === 'false') ? false : $userSessionDuration
+    ]
+];
