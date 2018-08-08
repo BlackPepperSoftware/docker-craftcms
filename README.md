@@ -38,10 +38,10 @@ Alternatively use Docker Compose:
 craftcms:
   image: blackpepper/craftcms
   environment:
-    CRAFT_DATABASE_HOST: database
-    CRAFT_DATABASE_USER: craft
-    CRAFT_DATABASE_PASSWORD: password
-    CRAFT_DATABASE_NAME: craft
+    DB_SERVER: database
+    DB_USER: craft
+    DB_PASSWORD: password
+    DB_DATABASE: craft
   links:
     - database
   ports:
