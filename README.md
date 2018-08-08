@@ -66,11 +66,11 @@ Use the following environment variables to configure Craft at runtime:
 
 Section | Variable Name | Craft Setting
 --------|---------------|--------------
-Database | `CRAFT_DATABASE_HOST` | [`server`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `CRAFT_DATABASE_PORT` | [`port`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `CRAFT_DATABASE_USER` | [`user`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `CRAFT_DATABASE_PASSWORD` | [`password`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `CRAFT_DATABASE_NAME` | [`database`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
+Database | `DB_SERVER` | [`server`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
+| | `DB_PORT` | [`port`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
+| | `DB_USER` | [`user`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
+| | `DB_PASSWORD` | [`password`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
+| | `DB_DATABASE` | [`database`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
 General | `CRAFT_DEV_MODE` | [`devMode`](https://craftcms.com/docs/config-settings#devMode)
 | | `CRAFT_SITE_URL` | [`siteUrl`](https://craftcms.com/docs/config-settings#siteUrl)
 | | `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://craftcms.com/docs/config-settings#useCompressedJs)
@@ -87,24 +87,21 @@ Use as a base image to customise Craft templates and public assets:
 ```Dockerfile
 FROM blackpepper/craftcms
 
-ADD templates /var/www/craft/templates
-ADD public /var/www/html
+COPY public /var/www/web
+COPY templates /var/www/templates
 ```
-
-Put [Craft files](https://craftcms.com/docs/folder-structure) under `/var/www/craft` and
-[public assets](https://craftcms.com/docs/installing#step-1-upload-the-files) under `/var/www/html`.
 
 ## Version
 
-This image aspires to track the latest build of Craft CMS 2.6. Use the following build arguments to customise the Craft CMS version at build time:
+This image aspires to track the latest build of Craft CMS 3.0. Use the following build arguments to customise the Craft CMS version at build time:
 
 Argument        | Description
 ----------------|----------------------------------------
-`CRAFT_VERSION` | The major and minor version, e.g. `2.6`
-`CRAFT_BUILD`   | The build number, e.g. `2999`
+`CRAFT_VERSION` | The major and minor version, e.g. `3.0`
+`CRAFT_BUILD`   | The build number, e.g. `18`
 
-For example, to build an image for Craft CMS version 2.6.2999:
+For example, to build an image for Craft CMS version 3.0.18:
 
 ```Shell
-docker build --build-arg CRAFT_VERSION=2.6 --build-arg CRAFT_BUILD=2999 .
+docker build --build-arg CRAFT_VERSION=3.0 --build-arg CRAFT_BUILD=18.
 ```
