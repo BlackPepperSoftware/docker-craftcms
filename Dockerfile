@@ -16,13 +16,13 @@ RUN a2enmod rewrite
 ARG CRAFT_VERSION=3.0
 ARG CRAFT_BUILD=18
 ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
-
 RUN wget https://download.craftcdn.com/craft/$CRAFT_VERSION/$CRAFT_ZIP -O /tmp/$CRAFT_ZIP \
     && unzip -q /tmp/$CRAFT_ZIP -d /var/www/ \
 	&& rm /tmp/$CRAFT_ZIP \
 	&& sed -i "s/html/web/" /etc/apache2/sites-available/000-default.conf \
 	&& rm -r /var/www/html
 
+# Move our general config file into config directory
 ADD general.php /var/www/config/
 
 RUN chown -R www-data:www-data /var/www/ \
@@ -33,6 +33,7 @@ RUN chown -R www-data:www-data /var/www/ \
 RUN cd /var/www/ \
     && ./craft setup/security-key
 
+# Set environment variables
 ENV DB_SERVER=localhost \
 	DB_PORT=3306 \
 	DB_USER=root \
