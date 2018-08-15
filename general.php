@@ -7,7 +7,7 @@
  * You can see a list of the default settings in craft/app/etc/config/defaults/general.php
  */
 
-$allowAutoUpdates = getenv('CRAFT_ALLOW_AUTO_UPDATES');
+$allowUpdates = getenv('CRAFT_ALLOW_UPDATES');
 $cooldownDuration = getenv('CRAFT_COOLDOWN_DURATION');
 $omitScriptNameInUrls = getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS');
 $siteUrl = getenv('CRAFT_SITE_URL');
@@ -16,9 +16,9 @@ $userSessionDuration = getenv('CRAFT_USER_SESSION_DURATION');
 return [
     // Global settings
     '*' => [
-        'allowUpdates' => ($allowAutoUpdates === 'minor-only' || $allowAutoUpdates === 'build-only')
-            ? $allowAutoUpdates
-            : ($allowAutoUpdates === 'true'),
+        'allowUpdates' => ($allowUpdates === 'minor-only' || $allowUpdates === 'build-only')
+            ? $allowUpdates
+            : ($allowUpdates === 'true'),
 
         'cooldownDuration' => ($cooldownDuration === 'false') ? false : $cooldownDuration,
 

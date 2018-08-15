@@ -19,10 +19,10 @@ Then run Craft:
 
 ```Shell
 docker run --name craftcms \
-	-e CRAFT_DATABASE_HOST=database \
-	-e CRAFT_DATABASE_USER=craft \
-	-e CRAFT_DATABASE_PASSWORD=password \
-	-e CRAFT_DATABASE_NAME=craft \
+	-e DB_SERVER=database \
+	-e DB_USER=craft \
+	-e DB_PASSWORD=password \
+	-e DB_DATABASE=craft \
 	--link database \
 	-p 8080:80 \
 	-d blackpepper/craftcms
@@ -66,19 +66,19 @@ Use the following environment variables to configure Craft at runtime:
 
 Section | Variable Name | Craft Setting
 --------|---------------|--------------
-Database | `DB_SERVER` | [`server`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `DB_PORT` | [`port`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `DB_USER` | [`user`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `DB_PASSWORD` | [`password`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `DB_DATABASE` | [`database`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-General | `CRAFT_DEV_MODE` | [`devMode`](https://craftcms.com/docs/config-settings#devMode)
-| | `CRAFT_SITE_URL` | [`siteUrl`](https://craftcms.com/docs/config-settings#siteUrl)
-| | `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://craftcms.com/docs/config-settings#useCompressedJs)
-Updates | `CRAFT_ALLOW_AUTO_UPDATES` | [`allowAutoUpdates`](https://craftcms.com/docs/config-settings#allowAutoUpdates)
-URLs | `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://craftcms.com/docs/config-settings#omitScriptNameInUrls)
-Users | `CRAFT_COOLDOWN_DURATION` | [`cooldownDuration`](https://craftcms.com/docs/config-settings#cooldownDuration)
-| | `CRAFT_USER_SESSION_DURATION` | [`userSessionDuration`](https://craftcms.com/docs/config-settings#userSessionDuration)
-Assets | `CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://craftcms.com/docs/config-settings#maxUploadFileSize)
+Database | `DB_SERVER` | [`server`](https://docs.craftcms.com/v3/config/db-settings.html)
+| | `DB_PORT` | [`port`](https://docs.craftcms.com/v3/config/db-settings.html)
+| | `DB_USER` | [`user`](https://docs.craftcms.com/v3/config/db-settings.html)
+| | `DB_PASSWORD` | [`password`](https://docs.craftcms.com/v3/config/db-settings.html)
+| | `DB_DATABASE` | [`database`](https://docs.craftcms.com/v3/config/db-settings.html)
+General | `CRAFT_DEV_MODE` | [`devMode`](https://docs.craftcms.com/v3/config/config-settings.html#devmode)
+| | `CRAFT_SITE_URL` | [`siteUrl`](https://docs.craftcms.com/v3/config/config-settings.html#siteurl)
+| | `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://docs.craftcms.com/v3/config/config-settings.html#usecompressedjs)
+Updates | `CRAFT_ALLOW_UPDATES` | [`allowUpdates`](https://docs.craftcms.com/v3/config/config-settings.html#allowupdates)
+URLs | `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://docs.craftcms.com/v3/config/config-settings.html#omitscriptnameinurls)
+Users | `CRAFT_COOLDOWN_DURATION` | [`cooldownDuration`](https://docs.craftcms.com/v3/config/config-settings.html#cooldownduration)
+| | `CRAFT_USER_SESSION_DURATION` | [`userSessionDuration`](https://docs.craftcms.com/v3/config/config-settings.html#usersessionduration)
+Assets | `CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://docs.craftcms.com/v3/config/config-settings.html#maxuploadfilesize)
 
 ## Customisation
 

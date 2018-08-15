@@ -6,7 +6,7 @@ This project demonstrates how to use `blackpepper/craftcms` with Docker Compose 
 
 1. `docker-compose up`
 1. Visit http://localhost:8080/admin
-1. [Run the Craft installer](https://craftcms.com/docs/installing#step-5-run-the-installer)
+1. [Run the Craft installer](https://docs.craftcms.com/v3/installation.html#step-6-run-the-setup-wizard)
 1. View the site at http://localhost:8080/
 
 ## Customisations
