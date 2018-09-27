@@ -12,8 +12,8 @@ RUN apt-get update \
 # Enable .htaccess
 RUN a2enmod rewrite
 
-ARG CRAFT_VERSION=2.6
-ARG CRAFT_BUILD=3004
+ARG CRAFT_VERSION=2.7
+ARG CRAFT_BUILD=2
 ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
 
 ADD https://download.buildwithcraft.com/craft/$CRAFT_VERSION/$CRAFT_VERSION.$CRAFT_BUILD/$CRAFT_ZIP /tmp/$CRAFT_ZIP
