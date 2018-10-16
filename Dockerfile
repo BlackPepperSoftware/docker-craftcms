@@ -26,10 +26,11 @@ RUN wget https://download.craftcdn.com/craft/$CRAFT_VERSION/$CRAFT_ZIP -O /tmp/$
 # Move our general config file into config directory
 ADD general.php /var/www/config/
 
-# Set permissions
+# Set ownership
 RUN chown -R www-data:www-data \
 	/var/www/config \
-	/var/www/storage
+	/var/www/storage \
+	/var/www/web/cpresources
 
 # Set up security key. This will be used by craft to encrypt data such as passwords in the database. This was optional
 # in craft 2 but now mandatory in 3.
