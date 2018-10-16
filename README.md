@@ -23,6 +23,7 @@ docker run --name craftcms \
 	-e DB_USER=craft \
 	-e DB_PASSWORD=password \
 	-e DB_DATABASE=craft \
+	-e DB_DRIVER=mysql \
 	--link database \
 	-p 8080:80 \
 	-d blackpepper/craftcms
@@ -42,6 +43,7 @@ craftcms:
     DB_USER: craft
     DB_PASSWORD: password
     DB_DATABASE: craft
+    DB_DRIVER: mysql
   links:
     - database
   ports:
@@ -71,6 +73,7 @@ Database | `DB_SERVER` | [`server`](https://docs.craftcms.com/v3/config/db-setti
 | | `DB_USER` | [`user`](https://docs.craftcms.com/v3/config/db-settings.html)
 | | `DB_PASSWORD` | [`password`](https://docs.craftcms.com/v3/config/db-settings.html)
 | | `DB_DATABASE` | [`database`](https://docs.craftcms.com/v3/config/db-settings.html)
+| | `DB_DRIVER` | [`driver`](https://docs.craftcms.com/v3/config/db-settings.html)
 General | `CRAFT_DEV_MODE` | [`devMode`](https://docs.craftcms.com/v3/config/config-settings.html#devmode)
 | | `CRAFT_SITE_URL` | [`siteUrl`](https://docs.craftcms.com/v3/config/config-settings.html#siteurl)
 | | `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://docs.craftcms.com/v3/config/config-settings.html#usecompressedjs)
@@ -85,7 +88,7 @@ Assets | `CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://docs.craft
 Use as a base image to customise Craft templates and public assets:
 
 ```Dockerfile
-FROM blackpepper/craftcms
+FROM blackpepper/craftcms:craft3
 
 COPY public /var/www/web
 COPY templates /var/www/templates
