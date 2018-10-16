@@ -30,7 +30,8 @@ ADD general.php /var/www/config/
 RUN chown -R www-data:www-data \
 	/var/www/config \
 	/var/www/storage \
-	/var/www/web/cpresources
+	/var/www/web/cpresources \
+	/var/www/vendor
 
 # Set up security key. This will be used by craft to encrypt data such as passwords in the database. This was optional
 # in craft 2 but now mandatory in 3.
