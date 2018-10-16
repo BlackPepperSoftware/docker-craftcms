@@ -5,6 +5,7 @@ site:
     DB_USER: craft
     DB_PASSWORD: password
     DB_DATABASE: craft
+    DB_DRIVER: mysql
     CRAFT_SITE_URL: http://localhost:8080/
   links:
     - database
