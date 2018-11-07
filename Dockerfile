@@ -45,7 +45,8 @@ RUN grep SECURITY_KEY < /var/www/.env > /var/www/temp.env \
 	&& mv /var/www/temp.env /var/www/.env
 
 # Set environment variables
-ENV DB_SERVER=localhost \
+ENV DB_DRIVER=mysql \
+	DB_SERVER=localhost \
 	DB_PORT=3306 \
 	DB_USER=root \
 	DB_PASSWORD="" \
