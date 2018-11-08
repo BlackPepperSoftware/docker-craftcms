@@ -8,15 +8,12 @@
  * @see craft\config\GeneralConfig
  */
 
-$cooldownDuration = getenv('CRAFT_COOLDOWN_DURATION');
-$userSessionDuration = getenv('CRAFT_USER_SESSION_DURATION');
-
 return [
     // Global settings
     '*' => [
-        'allowUpdates' => getenv('CRAFT_ALLOW_UPDATES'),
+        'allowUpdates' => (getenv('CRAFT_ALLOW_UPDATES') ?: 'true') === 'true',
 
-        'cooldownDuration' => ($cooldownDuration === 'false') ? false : $cooldownDuration,
+        'cooldownDuration' => (int) (getenv('CRAFT_COOLDOWN_DURATION') ?: '300'),
 
         // Control Panel trigger word
         'cpTrigger' => 'admin',
@@ -25,15 +22,15 @@ return [
         'defaultWeekStartDay' => 0,
 
         // Dev Mode (see https://craftcms.com/support/dev-mode)
-        'devMode' => getenv('CRAFT_DEV_MODE') === 'true',
+        'devMode' => (getenv('CRAFT_DEV_MODE') ?: 'true') === 'true',
 
         // Enable CSRF Protection (recommended)
         'enableCsrfProtection' => true,
 
-        'maxUploadFileSize' => getenv('CRAFT_MAX_UPLOAD_FILE_SIZE'),
+        'maxUploadFileSize' => (int) (getenv('CRAFT_MAX_UPLOAD_FILE_SIZE') ?: '16777216'),
 
         // Whether generated URLs should omit "index.php"
-        'omitScriptNameInUrls' => getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS') === 'true',
+        'omitScriptNameInUrls' => (getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS') ?: 'false') === 'true',
 
         'phpMaxMemoryLimit' => getenv('CRAFT_PHP_MAX_MEMORY_LIMIT') ?: '',
 
@@ -43,8 +40,8 @@ return [
         // Base site URL
         'siteUrl' => getenv('CRAFT_SITE_URL') ?: null,
 
-        'useCompressedJs' => getenv('CRAFT_USE_COMPRESSED_JS') === 'true',
+        'useCompressedJs' => (getenv('CRAFT_USE_COMPRESSED_JS') ?: 'true') === 'true',
 
-        'userSessionDuration' => ($userSessionDuration === 'false') ? false : $userSessionDuration
+        'userSessionDuration' => (int) (getenv('CRAFT_USER_SESSION_DURATION') ?: '3600'),
     ],
 ];
