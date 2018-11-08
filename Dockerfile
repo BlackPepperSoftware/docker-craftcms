@@ -19,6 +19,7 @@ ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
 RUN wget https://download.craftcdn.com/craft/$CRAFT_VERSION/$CRAFT_ZIP -O /tmp/$CRAFT_ZIP \
     && unzip -q /tmp/$CRAFT_ZIP -d /var/www/ \
 	&& rm /tmp/$CRAFT_ZIP \
+	&& chmod +x /var/www/craft \
 	&& sed -i "s/html/web/" /etc/apache2/sites-available/000-default.conf \
 	&& rm -r /var/www/html \
 	&& service apache2 restart
@@ -38,8 +39,7 @@ RUN chown -R www-data:www-data \
 
 # Set up security key. This will be used by craft to encrypt data such as passwords in the database. This was optional
 # in craft 2 but now mandatory in 3.
-RUN chmod +x /var/www/craft \
-		&& /var/www/craft setup/security-key
+RUN /var/www/craft setup/security-key
 
 # Removes environment variables that aren't the security key, which is generated,
 # as we specify our environment variables in the docker-compose.
