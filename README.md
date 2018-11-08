@@ -66,22 +66,22 @@ See the [demo](demo) project to see this in action.
 
 Use the following environment variables to configure Craft at runtime:
 
-Section | Variable Name | Craft Setting
---------|---------------|--------------
-Database | `DB_SERVER` | [`server`](https://docs.craftcms.com/v3/config/db-settings.html)
-| | `DB_PORT` | [`port`](https://docs.craftcms.com/v3/config/db-settings.html)
-| | `DB_USER` | [`user`](https://docs.craftcms.com/v3/config/db-settings.html)
-| | `DB_PASSWORD` | [`password`](https://docs.craftcms.com/v3/config/db-settings.html)
-| | `DB_DATABASE` | [`database`](https://docs.craftcms.com/v3/config/db-settings.html)
-| | `DB_DRIVER` | [`driver`](https://docs.craftcms.com/v3/config/db-settings.html)
-General | `CRAFT_DEV_MODE` | [`devMode`](https://docs.craftcms.com/v3/config/config-settings.html#devmode)
-| | `CRAFT_SITE_URL` | [`siteUrl`](https://docs.craftcms.com/v3/config/config-settings.html#siteurl)
-| | `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://docs.craftcms.com/v3/config/config-settings.html#usecompressedjs)
-Updates | `CRAFT_ALLOW_UPDATES` | [`allowUpdates`](https://docs.craftcms.com/v3/config/config-settings.html#allowupdates)
-URLs | `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://docs.craftcms.com/v3/config/config-settings.html#omitscriptnameinurls)
-Users | `CRAFT_COOLDOWN_DURATION` | [`cooldownDuration`](https://docs.craftcms.com/v3/config/config-settings.html#cooldownduration)
-| | `CRAFT_USER_SESSION_DURATION` | [`userSessionDuration`](https://docs.craftcms.com/v3/config/config-settings.html#usersessionduration)
-Assets | `CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://docs.craftcms.com/v3/config/config-settings.html#maxuploadfilesize)
+Variable Name | Craft Setting
+--------------|--------------
+`DB_DRIVER` | [`driver`](https://docs.craftcms.com/v3/config/db-settings.html#driver)
+`DB_SERVER` | [`server`](https://docs.craftcms.com/v3/config/db-settings.html#server)
+`DB_PORT` | [`port`](https://docs.craftcms.com/v3/config/db-settings.html#port)
+`DB_DATABASE` | [`database`](https://docs.craftcms.com/v3/config/db-settings.html#database)
+`DB_USER` | [`user`](https://docs.craftcms.com/v3/config/db-settings.html#user)
+`DB_PASSWORD` | [`password`](https://docs.craftcms.com/v3/config/db-settings.html#password)
+`CRAFT_ALLOW_UPDATES` | [`allowUpdates`](https://docs.craftcms.com/v3/config/config-settings.html#allowupdates)
+`CRAFT_COOLDOWN_DURATION` | [`cooldownDuration`](https://docs.craftcms.com/v3/config/config-settings.html#cooldownduration)
+`CRAFT_DEV_MODE` | [`devMode`](https://docs.craftcms.com/v3/config/config-settings.html#devmode)
+`CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://docs.craftcms.com/v3/config/config-settings.html#maxuploadfilesize)
+`CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://docs.craftcms.com/v3/config/config-settings.html#omitscriptnameinurls)
+`CRAFT_SITE_URL` | [`siteUrl`](https://docs.craftcms.com/v3/config/config-settings.html#siteurl)
+`CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://docs.craftcms.com/v3/config/config-settings.html#usecompressedjs)
+`CRAFT_USER_SESSION_DURATION` | [`userSessionDuration`](https://docs.craftcms.com/v3/config/config-settings.html#usersessionduration)
 
 ## Customisation
 

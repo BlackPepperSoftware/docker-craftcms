@@ -1,45 +1,48 @@
 <?php
-
 /**
  * General Configuration
  *
- * All of your system's general configuration settings go in here.
- * You can see a list of the default settings in craft/app/etc/config/defaults/general.php
+ * All of your system's general configuration settings go in here. You can see a
+ * list of the available settings in vendor/craftcms/cms/src/config/GeneralConfig.php.
+ *
+ * @see craft\config\GeneralConfig
  */
 
-$allowUpdates = getenv('CRAFT_ALLOW_UPDATES');
 $cooldownDuration = getenv('CRAFT_COOLDOWN_DURATION');
-$omitScriptNameInUrls = getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS');
-$siteUrl = getenv('CRAFT_SITE_URL');
 $userSessionDuration = getenv('CRAFT_USER_SESSION_DURATION');
 
 return [
     // Global settings
     '*' => [
-        'allowUpdates' => ($allowUpdates === 'minor-only' || $allowUpdates === 'build-only')
-            ? $allowUpdates
-            : ($allowUpdates === 'true'),
+        'allowUpdates' => getenv('CRAFT_ALLOW_UPDATES'),
 
         'cooldownDuration' => ($cooldownDuration === 'false') ? false : $cooldownDuration,
 
+        // Control Panel trigger word
         'cpTrigger' => 'admin',
 
+        // Default Week Start Day (0 = Sunday, 1 = Monday...)
         'defaultWeekStartDay' => 0,
 
+        // Dev Mode (see https://craftcms.com/support/dev-mode)
         'devMode' => getenv('CRAFT_DEV_MODE') === 'true',
 
+        // Enable CSRF Protection (recommended)
         'enableCsrfProtection' => true,
 
         'maxUploadFileSize' => getenv('CRAFT_MAX_UPLOAD_FILE_SIZE'),
 
-        'omitScriptNameInUrls' => ($omitScriptNameInUrls === 'auto')
-            ? $omitScriptNameInUrls
-            : ($omitScriptNameInUrls === 'true'),
+        // Whether generated URLs should omit "index.php"
+        'omitScriptNameInUrls' => getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS') === 'true',
 
-        'siteUrl' => $siteUrl ? $siteUrl : null,
+        // The secure key Craft will use for hashing and encrypting data
+        'securityKey' => getenv('SECURITY_KEY'),
+
+        // Base site URL
+        'siteUrl' => getenv('CRAFT_SITE_URL') ?: null,
 
         'useCompressedJs' => getenv('CRAFT_USE_COMPRESSED_JS') === 'true',
 
         'userSessionDuration' => ($userSessionDuration === 'false') ? false : $userSessionDuration
-    ]
+    ],
 ];
