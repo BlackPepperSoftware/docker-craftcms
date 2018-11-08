@@ -37,15 +37,9 @@ RUN chown -R www-data:www-data \
 	/var/www/vendor \
 	/var/www/web/cpresources
 
-# Set up security key. This will be used by craft to encrypt data such as passwords in the database. This was optional
-# in craft 2 but now mandatory in 3.
-RUN /var/www/craft setup/security-key
-
-# Removes environment variables that aren't the security key, which is generated,
-# as we specify our environment variables in the docker-compose.
-RUN grep SECURITY_KEY < /var/www/.env > /var/www/temp.env \
-	&& rm /var/www/.env \
-	&& mv /var/www/temp.env /var/www/.env
+# Set up security key
+RUN rm /var/www/.env \
+	&& /var/www/craft setup/security-key
 
 # Set environment variables
 ENV DB_DRIVER=mysql \
