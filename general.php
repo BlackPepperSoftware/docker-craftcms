@@ -35,6 +35,8 @@ return [
         // Whether generated URLs should omit "index.php"
         'omitScriptNameInUrls' => getenv('CRAFT_OMIT_SCRIPT_NAME_IN_URLS') === 'true',
 
+        'phpMaxMemoryLimit' => getenv('CRAFT_PHP_MAX_MEMORY_LIMIT') ?: '',
+
         // The secure key Craft will use for hashing and encrypting data
         'securityKey' => getenv('SECURITY_KEY'),
 

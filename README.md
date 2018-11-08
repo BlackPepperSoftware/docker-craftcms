@@ -79,6 +79,7 @@ Variable Name | Craft Setting
 `CRAFT_DEV_MODE` | [`devMode`](https://docs.craftcms.com/v3/config/config-settings.html#devmode)
 `CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://docs.craftcms.com/v3/config/config-settings.html#maxuploadfilesize)
 `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://docs.craftcms.com/v3/config/config-settings.html#omitscriptnameinurls)
+`CRAFT_PHP_MAX_MEMORY_LIMIT` | [`phpMaxMemoryLimit`](https://docs.craftcms.com/v3/config/config-settings.html#phpmaxmemorylimit)
 `CRAFT_SITE_URL` | [`siteUrl`](https://docs.craftcms.com/v3/config/config-settings.html#siteurl)
 `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://docs.craftcms.com/v3/config/config-settings.html#usecompressedjs)
 `CRAFT_USER_SESSION_DURATION` | [`userSessionDuration`](https://docs.craftcms.com/v3/config/config-settings.html#usersessionduration)
