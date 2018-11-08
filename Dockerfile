@@ -38,8 +38,10 @@ RUN chown -R www-data:www-data \
 	/var/www/web/cpresources
 
 # Set up security key
-RUN rm /var/www/.env \
-	&& /var/www/craft setup/security-key
+RUN truncate -s0 /var/www/.env
+USER www-data
+RUN /var/www/craft setup/security-key
+USER root
 
 # Set environment variables
 ENV DB_DRIVER=mysql \
