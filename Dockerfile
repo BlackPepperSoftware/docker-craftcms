@@ -22,6 +22,7 @@ RUN wget https://download.craftcdn.com/craft/$CRAFT_VERSION/$CRAFT_ZIP -O /tmp/$
 	&& chmod +x /var/www/craft \
 	&& sed -i "s/html/web/" /etc/apache2/sites-available/000-default.conf \
 	&& rm -r /var/www/html \
+	&& echo "php_value memory_limit 256M" >> /var/www/web/.htaccess \
 	&& service apache2 restart
 
 # Move our general config file into config directory
