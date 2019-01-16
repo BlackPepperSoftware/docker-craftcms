@@ -19,10 +19,11 @@ Then run Craft:
 
 ```Shell
 docker run --name craftcms \
-	-e CRAFT_DATABASE_HOST=database \
-	-e CRAFT_DATABASE_USER=craft \
-	-e CRAFT_DATABASE_PASSWORD=password \
-	-e CRAFT_DATABASE_NAME=craft \
+	-e DB_SERVER=database \
+	-e DB_USER=craft \
+	-e DB_PASSWORD=password \
+	-e DB_DATABASE=craft \
+	-e DB_DRIVER=mysql \
 	--link database \
 	-p 8080:80 \
 	-d blackpepper/craftcms
@@ -38,10 +39,11 @@ Alternatively use Docker Compose:
 craftcms:
   image: blackpepper/craftcms
   environment:
-    CRAFT_DATABASE_HOST: database
-    CRAFT_DATABASE_USER: craft
-    CRAFT_DATABASE_PASSWORD: password
-    CRAFT_DATABASE_NAME: craft
+    DB_SERVER: database
+    DB_USER: craft
+    DB_PASSWORD: password
+    DB_DATABASE: craft
+    DB_DRIVER: mysql
   links:
     - database
   ports:
@@ -64,47 +66,46 @@ See the [demo](demo) project to see this in action.
 
 Use the following environment variables to configure Craft at runtime:
 
-Section | Variable Name | Craft Setting
---------|---------------|--------------
-Database | `CRAFT_DATABASE_HOST` | [`server`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `CRAFT_DATABASE_PORT` | [`port`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `CRAFT_DATABASE_USER` | [`user`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `CRAFT_DATABASE_PASSWORD` | [`password`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-| | `CRAFT_DATABASE_NAME` | [`database`](https://craftcms.com/docs/installing#step-4-tell-craft-how-to-connect-to-your-database)
-General | `CRAFT_DEV_MODE` | [`devMode`](https://craftcms.com/docs/config-settings#devMode)
-| | `CRAFT_SITE_URL` | [`siteUrl`](https://craftcms.com/docs/config-settings#siteUrl)
-| | `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://craftcms.com/docs/config-settings#useCompressedJs)
-Updates | `CRAFT_ALLOW_AUTO_UPDATES` | [`allowAutoUpdates`](https://craftcms.com/docs/config-settings#allowAutoUpdates)
-URLs | `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://craftcms.com/docs/config-settings#omitScriptNameInUrls)
-Users | `CRAFT_COOLDOWN_DURATION` | [`cooldownDuration`](https://craftcms.com/docs/config-settings#cooldownDuration)
-| | `CRAFT_USER_SESSION_DURATION` | [`userSessionDuration`](https://craftcms.com/docs/config-settings#userSessionDuration)
-Assets | `CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://craftcms.com/docs/config-settings#maxUploadFileSize)
+Variable Name | Craft Setting
+--------------|--------------
+`DB_DRIVER` | [`driver`](https://docs.craftcms.com/v3/config/db-settings.html#driver)
+`DB_SERVER` | [`server`](https://docs.craftcms.com/v3/config/db-settings.html#server)
+`DB_PORT` | [`port`](https://docs.craftcms.com/v3/config/db-settings.html#port)
+`DB_DATABASE` | [`database`](https://docs.craftcms.com/v3/config/db-settings.html#database)
+`DB_USER` | [`user`](https://docs.craftcms.com/v3/config/db-settings.html#user)
+`DB_PASSWORD` | [`password`](https://docs.craftcms.com/v3/config/db-settings.html#password)
+`CRAFT_ALLOW_UPDATES` | [`allowUpdates`](https://docs.craftcms.com/v3/config/config-settings.html#allowupdates)
+`CRAFT_COOLDOWN_DURATION` | [`cooldownDuration`](https://docs.craftcms.com/v3/config/config-settings.html#cooldownduration)
+`CRAFT_DEV_MODE` | [`devMode`](https://docs.craftcms.com/v3/config/config-settings.html#devmode)
+`CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://docs.craftcms.com/v3/config/config-settings.html#maxuploadfilesize)
+`CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://docs.craftcms.com/v3/config/config-settings.html#omitscriptnameinurls)
+`CRAFT_PHP_MAX_MEMORY_LIMIT` | [`phpMaxMemoryLimit`](https://docs.craftcms.com/v3/config/config-settings.html#phpmaxmemorylimit)
+`CRAFT_SITE_URL` | [`siteUrl`](https://docs.craftcms.com/v3/config/config-settings.html#siteurl)
+`CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://docs.craftcms.com/v3/config/config-settings.html#usecompressedjs)
+`CRAFT_USER_SESSION_DURATION` | [`userSessionDuration`](https://docs.craftcms.com/v3/config/config-settings.html#usersessionduration)
 
 ## Customisation
 
 Use as a base image to customise Craft templates and public assets:
 
 ```Dockerfile
-FROM blackpepper/craftcms
+FROM blackpepper/craftcms:craft3
 
-ADD templates /var/www/craft/templates
-ADD public /var/www/html
+COPY public /var/www/web
+COPY templates /var/www/templates
 ```
-
-Put [Craft files](https://craftcms.com/docs/folder-structure) under `/var/www/craft` and
-[public assets](https://craftcms.com/docs/installing#step-1-upload-the-files) under `/var/www/html`.
 
 ## Version
 
-This image aspires to track the latest build of Craft CMS 2.6. Use the following build arguments to customise the Craft CMS version at build time:
+This image aspires to track the latest build of Craft CMS 3.0. Use the following build arguments to customise the Craft CMS version at build time:
 
 Argument        | Description
 ----------------|----------------------------------------
-`CRAFT_VERSION` | The major and minor version, e.g. `2.6`
-`CRAFT_BUILD`   | The build number, e.g. `2999`
+`CRAFT_VERSION` | The major and minor version, e.g. `3.0`
+`CRAFT_BUILD`   | The build number, e.g. `18`
 
-For example, to build an image for Craft CMS version 2.6.2999:
+For example, to build an image for Craft CMS version 3.0.18:
 
 ```Shell
-docker build --build-arg CRAFT_VERSION=2.6 --build-arg CRAFT_BUILD=2999 .
+docker build --build-arg CRAFT_VERSION=3.0 --build-arg CRAFT_BUILD=18.
 ```

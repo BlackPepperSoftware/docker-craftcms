@@ -1,9 +1,9 @@
 FROM php:7.1-apache
 
-LABEL maintainer "Mark Hobson <mark.hobson@blackpepper.co.uk>"
+LABEL maintainer = "Mark Hobson <mark.hobson@blackpepper.co.uk>"
 
 RUN apt-get update \
-	&& apt-get install -yq unzip libmcrypt-dev libmagickwand-dev \
+	&& apt-get install -yq unzip libmcrypt-dev libmagickwand-dev wget mariadb-client-10.1 \
 	&& docker-php-ext-install zip pdo_mysql mcrypt \
 	&& pecl install imagick \
 	&& docker-php-ext-enable imagick \
@@ -12,35 +12,43 @@ RUN apt-get update \
 # Enable .htaccess
 RUN a2enmod rewrite
 
-ARG CRAFT_VERSION=2.7
-ARG CRAFT_BUILD=3
+# Retrieve and unzip craft
+ARG CRAFT_VERSION=3.0
+ARG CRAFT_BUILD=37
 ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
-
-ADD https://download.buildwithcraft.com/craft/$CRAFT_VERSION/$CRAFT_VERSION.$CRAFT_BUILD/$CRAFT_ZIP /tmp/$CRAFT_ZIP
-
-RUN unzip -q /tmp/$CRAFT_ZIP -d /var/www/ \
+RUN wget https://download.craftcdn.com/craft/$CRAFT_VERSION/$CRAFT_ZIP -O /tmp/$CRAFT_ZIP \
+    && unzip -q /tmp/$CRAFT_ZIP -d /var/www/ \
 	&& rm /tmp/$CRAFT_ZIP \
-	&& mv /var/www/public/* /var/www/html/ \
-	&& mv /var/www/html/htaccess /var/www/html/.htaccess \
-	&& rmdir /var/www/public
+	&& chmod +x /var/www/craft \
+	&& sed -i "s/html/web/" /etc/apache2/sites-available/000-default.conf \
+	&& rm -r /var/www/html \
+	&& echo "php_value memory_limit 256M" >> /var/www/web/.htaccess \
+	&& service apache2 restart
 
-# Allow Craft to be configured with environment variables
-ADD db.php general.php /var/www/craft/config/
+# Move our general config file into config directory
+ADD general.php /var/www/config/
 
+# Set ownership
 RUN chown -R www-data:www-data \
-	/var/www/craft/app/ \
-	/var/www/craft/config/ \
-	/var/www/craft/storage/
+	/var/www/.env \
+	/var/www/composer.json \
+	/var/www/composer.lock \
+	/var/www/config \
+	/var/www/storage \
+	/var/www/vendor \
+	/var/www/web/cpresources
 
-ENV CRAFT_DATABASE_HOST=localhost \
-	CRAFT_DATABASE_PORT=3306 \
-	CRAFT_DATABASE_USER=root \
-	CRAFT_DATABASE_PASSWORD= \
-	CRAFT_DATABASE_NAME= \
-	CRAFT_ALLOW_AUTO_UPDATES=true \
-	CRAFT_COOLDOWN_DURATION=PT5M \
-	CRAFT_DEV_MODE=false \
-	CRAFT_MAX_UPLOAD_FILE_SIZE=16777216 \
-	CRAFT_OMIT_SCRIPT_NAME_IN_URLS=auto \
-	CRAFT_USE_COMPRESSED_JS=true \
-	CRAFT_USER_SESSION_DURATION=PT1H
+# Set up security key
+RUN truncate -s0 /var/www/.env
+USER www-data
+RUN /var/www/craft setup/security-key
+USER root
+
+# Set environment variables
+ENV DB_DRIVER=mysql \
+	DB_SERVER=localhost \
+	DB_PORT=3306 \
+	DB_USER=root \
+	DB_PASSWORD="" \
+	DB_TABLE_PREFIX=craft \
+	DB_DATABASE=""

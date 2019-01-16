@@ -1,4 +1,5 @@
-FROM blackpepper/craftcms
+FROM blackpepper/craftcms:craft3
 
-ADD public /var/www/html
-ADD templates /var/www/craft/templates
+COPY public /var/www/web
+COPY templates /var/www/templates
+
