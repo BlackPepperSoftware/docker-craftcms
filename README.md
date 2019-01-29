@@ -81,6 +81,7 @@ Variable Name | Craft Setting
 `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://docs.craftcms.com/v3/config/config-settings.html#omitscriptnameinurls)
 `CRAFT_PHP_MAX_MEMORY_LIMIT` | [`phpMaxMemoryLimit`](https://docs.craftcms.com/v3/config/config-settings.html#phpmaxmemorylimit)
 `CRAFT_SITE_URL` | [`siteUrl`](https://docs.craftcms.com/v3/config/config-settings.html#siteurl)
+`CRAFT_TRANSFORM_GIFS` | [`transformGifs`](https://docs.craftcms.com/v3/config/config-settings.html#transformgifs)
 `CRAFT_USE_COMPRESSED_JS` | [`useCompressedJs`](https://docs.craftcms.com/v3/config/config-settings.html#usecompressedjs)
 `CRAFT_USER_SESSION_DURATION` | [`userSessionDuration`](https://docs.craftcms.com/v3/config/config-settings.html#usersessionduration)
 
