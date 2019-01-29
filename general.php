@@ -38,12 +38,12 @@ return [
         'securityKey' => getenv('SECURITY_KEY'),
 
         // Base site URL
-	'siteUrl' => getenv('CRAFT_SITE_URL') ?: null,
+        'siteUrl' => getenv('CRAFT_SITE_URL') ?: null,
 
-	'transformGifs' => (getenv('CRAFT_TRANSFORM_GIFS') ?: 'false') === 'true',
+        'transformGifs' => (getenv('CRAFT_TRANSFORM_GIFS') ?: 'false') === 'true',
 
         'useCompressedJs' => (getenv('CRAFT_USE_COMPRESSED_JS') ?: 'true') === 'true',
 
-	'userSessionDuration' => (int) (getenv('CRAFT_USER_SESSION_DURATION') ?: '3600')
+        'userSessionDuration' => (int) (getenv('CRAFT_USER_SESSION_DURATION') ?: '3600')
     ],
 ];
