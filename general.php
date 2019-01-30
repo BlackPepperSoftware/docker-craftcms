@@ -40,7 +40,7 @@ return [
         // Base site URL
         'siteUrl' => getenv('CRAFT_SITE_URL') ?: null,
 
-        'transformGifs' => (getenv('CRAFT_TRANSFORM_GIFS') ?: 'false') === 'true',
+        'transformGifs' => (getenv('CRAFT_TRANSFORM_GIFS') ?: 'true') === 'true',
 
         'useCompressedJs' => (getenv('CRAFT_USE_COMPRESSED_JS') ?: 'true') === 'true',
 
