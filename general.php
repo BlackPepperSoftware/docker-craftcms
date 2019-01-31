@@ -27,6 +27,8 @@ return [
         // Enable CSRF Protection (recommended)
         'enableCsrfProtection' => true,
 
+	'enableTemplateCaching' => (getenv('CRAFT_ENABLE_TEMPLATE_CACHING') ?: 'true') === 'true',
+
         'maxUploadFileSize' => (int) (getenv('CRAFT_MAX_UPLOAD_FILE_SIZE') ?: '16777216'),
 
         // Whether generated URLs should omit "index.php"

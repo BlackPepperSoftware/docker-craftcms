@@ -77,6 +77,7 @@ Variable Name | Craft Setting
 `CRAFT_ALLOW_UPDATES` | [`allowUpdates`](https://docs.craftcms.com/v3/config/config-settings.html#allowupdates)
 `CRAFT_COOLDOWN_DURATION` | [`cooldownDuration`](https://docs.craftcms.com/v3/config/config-settings.html#cooldownduration)
 `CRAFT_DEV_MODE` | [`devMode`](https://docs.craftcms.com/v3/config/config-settings.html#devmode)
+`CRAFT_ENABLE_TEMPLATE_CACHING` | [`enableTemplateCaching`](https://docs.craftcms.com/v3/config/config-settings.html#enabletemplatecaching)
 `CRAFT_MAX_UPLOAD_FILE_SIZE` | [`maxUploadFileSize`](https://docs.craftcms.com/v3/config/config-settings.html#maxuploadfilesize)
 `CRAFT_OMIT_SCRIPT_NAME_IN_URLS` | [`omitScriptNameInUrls`](https://docs.craftcms.com/v3/config/config-settings.html#omitscriptnameinurls)
 `CRAFT_PHP_MAX_MEMORY_LIMIT` | [`phpMaxMemoryLimit`](https://docs.craftcms.com/v3/config/config-settings.html#phpmaxmemorylimit)
