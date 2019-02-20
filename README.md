@@ -62,6 +62,15 @@ database:
 
 See the [demo](demo) project to see this in action.
 
+## Tags
+
+The following Docker image tags are available:
+
+Craft Version | Tag
+--------------|----
+3 | [`latest`](https://github.com/BlackPepperSoftware/docker-craftcms/blob/master/Dockerfile)
+2 | [`2`](https://github.com/BlackPepperSoftware/docker-craftcms/blob/2/Dockerfile)
+
 ## Configuration
 
 Use the following environment variables to configure Craft at runtime:
