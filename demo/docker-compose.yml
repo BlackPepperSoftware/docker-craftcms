@@ -1,23 +1,27 @@
-site:
-  build: site
-  environment:
-    DB_SERVER: database
-    DB_USER: craft
-    DB_PASSWORD: password
-    DB_DATABASE: craft
-    DB_DRIVER: mysql
-    CRAFT_SITE_URL: http://localhost:8080/
-  links:
-    - database
-  ports:
-    - "8080:80"
+version: '2.4'
 
-database:
-  image: mariadb:10
-  environment:
-    MYSQL_ROOT_PASSWORD: password
-    MYSQL_USER: craft
-    MYSQL_PASSWORD: password
-    MYSQL_DATABASE: craft
-  ports:
-    - "3306:3306"
+services:
+  
+  site:
+    build: site
+    environment:
+      DB_SERVER: database
+      DB_USER: craft
+      DB_PASSWORD: password
+      DB_DATABASE: craft
+      DB_DRIVER: mysql
+      CRAFT_SITE_URL: http://localhost:8080/
+    links:
+      - database
+    ports:
+      - "8080:80"
+
+  database:
+    image: mariadb:10
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: craft
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: craft
+    ports:
+      - "3306:3306"

@@ -36,28 +36,32 @@ Visit http://localhost:8080/admin to create a site.
 Alternatively use Docker Compose:
 
 ```YAML
-craftcms:
-  image: blackpepper/craftcms
-  environment:
-    DB_SERVER: database
-    DB_USER: craft
-    DB_PASSWORD: password
-    DB_DATABASE: craft
-    DB_DRIVER: mysql
-  links:
-    - database
-  ports:
-    - "8080:80"
+version: '2.4'
 
-database:
-  image: mariadb:10
-  environment:
-    MYSQL_ROOT_PASSWORD: password
-    MYSQL_USER: craft
-    MYSQL_PASSWORD: password
-    MYSQL_DATABASE: craft
-  ports:
-    - "3306:3306"
+services:
+  
+  craftcms:
+    image: blackpepper/craftcms
+    environment:
+      DB_SERVER: database
+      DB_USER: craft
+      DB_PASSWORD: password
+      DB_DATABASE: craft
+      DB_DRIVER: mysql
+    links:
+      - database
+    ports:
+      - "8080:80"
+
+  database:
+    image: mariadb:10
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: craft
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: craft
+    ports:
+      - "3306:3306"
 ```
 
 See the [demo](demo) project to see this in action.
