@@ -51,7 +51,7 @@ services:
     links:
       - database
     ports:
-      - "8080:80"
+      - 8080:80
 
   database:
     image: mariadb:10
@@ -61,7 +61,7 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_DATABASE: craft
     ports:
-      - "3306:3306"
+      - 3306:3306
 ```
 
 See the [demo](demo) project to see this in action.
