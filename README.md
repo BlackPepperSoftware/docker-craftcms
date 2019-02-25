@@ -122,5 +122,5 @@ Argument        | Description
 For example, to build an image for Craft CMS version 3.0.18:
 
 ```Shell
-docker build --build-arg CRAFT_VERSION=3.0 --build-arg CRAFT_BUILD=18.
+docker build --build-arg CRAFT_VERSION=3.0 --build-arg CRAFT_BUILD=18 .
 ```
