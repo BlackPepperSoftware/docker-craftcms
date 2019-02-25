@@ -104,7 +104,7 @@ Variable Name | Craft Setting
 Use as a base image to customise Craft templates and public assets:
 
 ```Dockerfile
-FROM blackpepper/craftcms:craft3
+FROM blackpepper/craftcms
 
 COPY public /var/www/web
 COPY templates /var/www/templates
