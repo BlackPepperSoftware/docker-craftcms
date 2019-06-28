@@ -22,26 +22,19 @@ RUN wget https://download.craftcdn.com/craft/$CRAFT_VERSION/$CRAFT_ZIP -O /tmp/$
 	&& chmod +x /var/www/craft \
 	&& sed -i "s/html/web/" /etc/apache2/sites-available/000-default.conf \
 	&& rm -r /var/www/html \
+	&& chown -R www-data:www-data /var/www/* /var/www/.[^.]* \
 	&& echo "php_value memory_limit 256M" >> /var/www/web/.htaccess \
 	&& service apache2 restart
 
 # Move our general config file into config directory
-ADD general.php /var/www/config/
-
-# Set ownership
-RUN chown -R www-data:www-data \
-	/var/www/.env \
-	/var/www/composer.json \
-	/var/www/composer.lock \
-	/var/www/config \
-	/var/www/storage \
-	/var/www/vendor \
-	/var/www/web/cpresources
+ADD --chown=www-data:www-data general.php /var/www/config/
 
 # Set up security key
-RUN truncate -s0 /var/www/.env
 USER www-data
+
+RUN truncate -s0 /var/www/.env
 RUN /var/www/craft setup/security-key
+
 USER root
 
 # Set environment variables
