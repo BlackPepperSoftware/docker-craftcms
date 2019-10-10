@@ -16,7 +16,7 @@ RUN a2enmod rewrite
 
 # Retrieve and unzip craft
 ARG CRAFT_VERSION=3.1
-ARG CRAFT_BUILD=34.3
+ARG CRAFT_BUILD=33
 ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
 RUN wget https://download.craftcdn.com/craft/$CRAFT_VERSION/$CRAFT_ZIP -O /tmp/$CRAFT_ZIP \
     && unzip -q /tmp/$CRAFT_ZIP -d /var/www/ \
