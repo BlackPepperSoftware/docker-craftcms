@@ -34,12 +34,8 @@ ADD --chown=www-data:www-data general.php /var/www/config/
 # Set up security key
 USER www-data
 
-RUN truncate -s0 /var/www/.env
-RUN /var/www/craft setup/security-key
-
-USER root
-
 # Set environment variables
+RUN truncate -s0 /var/www/.env
 ENV DB_DRIVER=mysql \
 	DB_SERVER=localhost \
 	DB_PORT=3306 \
@@ -47,3 +43,7 @@ ENV DB_DRIVER=mysql \
 	DB_PASSWORD="" \
 	DB_TABLE_PREFIX=craft \
 	DB_DATABASE=""
+
+RUN /var/www/craft setup/security-key
+
+USER root
