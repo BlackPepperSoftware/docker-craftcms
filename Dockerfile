@@ -5,10 +5,10 @@ LABEL maintainer = "Mark Hobson <mark.hobson@blackpepper.co.uk>"
 WORKDIR /var/www
 
 RUN apt-get update \
-	&& apt-get install -yq unzip libmcrypt-dev libmagickwand-dev wget mariadb-client-10.3 \
-	&& docker-php-ext-install zip pdo_mysql mcrypt \
-	&& pecl install imagick \
-	&& docker-php-ext-enable imagick \
+	&& apt-get install -yq unzip libmcrypt-dev libmagickwand-dev libzip-dev wget mariadb-client-10.3 \
+	&& docker-php-ext-install zip pdo_mysql \
+	&& pecl install imagick mcrypt-1.0.2 \
+	&& docker-php-ext-enable imagick mcrypt \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Enable .htaccess
