@@ -81,10 +81,7 @@ Use the following environment variables to configure Craft at runtime:
 
 Variable Name | Craft Setting
 --------------|--------------
-`DB_DRIVER` | [`driver`](https://docs.craftcms.com/v3/config/db-settings.html#driver)
-`DB_SERVER` | [`server`](https://docs.craftcms.com/v3/config/db-settings.html#server)
-`DB_PORT` | [`port`](https://docs.craftcms.com/v3/config/db-settings.html#port)
-`DB_DATABASE` | [`database`](https://docs.craftcms.com/v3/config/db-settings.html#database)
+`DB_DSN` | [`mysql:host=localhost;port=3306;dbname=craft`](https://docs.craftcms.com/v3/config/db-settings.html#dsn)
 `DB_USER` | [`user`](https://docs.craftcms.com/v3/config/db-settings.html#user)
 `DB_PASSWORD` | [`password`](https://docs.craftcms.com/v3/config/db-settings.html#password)
 `CRAFT_ALLOW_UPDATES` | [`allowUpdates`](https://docs.craftcms.com/v3/config/config-settings.html#allowupdates)
