@@ -19,11 +19,9 @@ Then run Craft:
 
 ```Shell
 docker run --name craftcms \
-	-e DB_SERVER=database \
+	-e DB_DSN=mysql:host=localhost;port=3306;dbname=craft \
 	-e DB_USER=craft \
 	-e DB_PASSWORD=password \
-	-e DB_DATABASE=craft \
-	-e DB_DRIVER=mysql \
 	--link database \
 	-p 8080:80 \
 	-d blackpepper/craftcms
@@ -43,11 +41,9 @@ services:
   craftcms:
     image: blackpepper/craftcms
     environment:
-      DB_SERVER: database
+      DB_DSN: mysql:host=localhost;port=3306;dbname=craft
       DB_USER: craft
       DB_PASSWORD: password
-      DB_DATABASE: craft
-      DB_DRIVER: mysql
     links:
       - database
     ports:
@@ -81,10 +77,7 @@ Use the following environment variables to configure Craft at runtime:
 
 Variable Name | Craft Setting
 --------------|--------------
-`DB_DRIVER` | [`driver`](https://docs.craftcms.com/v3/config/db-settings.html#driver)
-`DB_SERVER` | [`server`](https://docs.craftcms.com/v3/config/db-settings.html#server)
-`DB_PORT` | [`port`](https://docs.craftcms.com/v3/config/db-settings.html#port)
-`DB_DATABASE` | [`database`](https://docs.craftcms.com/v3/config/db-settings.html#database)
+`DB_DSN` | [`mysql:host=localhost;port=3306;dbname=craft`](https://docs.craftcms.com/v3/config/db-settings.html#dsn)
 `DB_USER` | [`user`](https://docs.craftcms.com/v3/config/db-settings.html#user)
 `DB_PASSWORD` | [`password`](https://docs.craftcms.com/v3/config/db-settings.html#password)
 `CRAFT_ALLOW_UPDATES` | [`allowUpdates`](https://docs.craftcms.com/v3/config/config-settings.html#allowupdates)

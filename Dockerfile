@@ -15,8 +15,8 @@ RUN apt-get update \
 RUN a2enmod rewrite
 
 # Retrieve and unzip craft
-ARG CRAFT_VERSION=3.3
-ARG CRAFT_BUILD=20.1
+ARG CRAFT_VERSION=3.5
+ARG CRAFT_BUILD=17.1
 ENV CRAFT_ZIP=Craft-$CRAFT_VERSION.$CRAFT_BUILD.zip
 RUN wget https://download.craftcdn.com/craft/$CRAFT_VERSION/$CRAFT_ZIP -O /tmp/$CRAFT_ZIP \
     && unzip -q /tmp/$CRAFT_ZIP -d /var/www/ \
@@ -36,13 +36,10 @@ USER www-data
 
 # Set environment variables
 RUN truncate -s0 /var/www/.env
-ENV DB_DRIVER=mysql \
-	DB_SERVER=localhost \
-	DB_PORT=3306 \
+ENV DB_DSN="mysql:host=localhost;port=3306;dbname=" \
 	DB_USER=root \
 	DB_PASSWORD="" \
-	DB_TABLE_PREFIX=craft \
-	DB_DATABASE=""
+	DB_TABLE_PREFIX=craft
 
 RUN /var/www/craft setup/security-key
 
