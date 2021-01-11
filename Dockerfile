@@ -36,10 +36,13 @@ USER www-data
 
 # Set environment variables
 RUN truncate -s0 /var/www/.env
-ENV DB_DSN="mysql:host=localhost;port=3306;dbname=" \
+ENV DB_DRIVER=mysql \
+	DB_SERVER=localhost \
+	DB_PORT=3306 \
 	DB_USER=root \
 	DB_PASSWORD="" \
-	DB_TABLE_PREFIX=craft
+	DB_TABLE_PREFIX=craft \
+	DB_DATABASE=""
 
 RUN /var/www/craft setup/security-key
 

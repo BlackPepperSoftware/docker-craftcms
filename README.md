@@ -19,9 +19,11 @@ Then run Craft:
 
 ```Shell
 docker run --name craftcms \
-	-e DB_DSN=mysql:host=localhost;port=3306;dbname=craft \
+	-e DB_SERVER=database \
 	-e DB_USER=craft \
 	-e DB_PASSWORD=password \
+	-e DB_DATABASE=craft \
+	-e DB_DRIVER=mysql \
 	--link database \
 	-p 8080:80 \
 	-d blackpepper/craftcms
@@ -37,13 +39,15 @@ Alternatively use Docker Compose:
 version: '2.4'
 
 services:
-  
+
   craftcms:
     image: blackpepper/craftcms
     environment:
-      DB_DSN: mysql:host=localhost;port=3306;dbname=craft
+      DB_SERVER: database
       DB_USER: craft
       DB_PASSWORD: password
+      DB_DATABASE: craft
+      DB_DRIVER: mysql
     links:
       - database
     ports:
