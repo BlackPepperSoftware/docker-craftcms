@@ -109,14 +109,14 @@ COPY templates /var/www/templates
 
 ## Version
 
-This image aspires to track the latest build of Craft CMS 3.0. Use the following build arguments to customise the Craft CMS version at build time:
+This image aspires to track the latest build of Craft CMS 3. Use the following build arguments to customise the Craft CMS version at build time:
 
 Argument        | Description
-----------------|----------------------------------------
-`CMS_VERSION`   | The version number of craft cms to use, including the major, minor and build numbers, e.g. `3.6.5.1`
-`CRAFT_VERSION` | The version of the craft installer project to use, including the major, minor and build numbers, e.g. `1.1.2`
+----------------|----------------------------------------------------------
+`CMS_VERSION`   | The version of Craft CMS to use, e.g. `3.6.5.1`
+`CRAFT_VERSION` | The version of the Craft CMS starter to use, e.g. `1.1.2`
 
-For example, to build an image for Craft CMS version 3.0.18:
+For example, to build an image for Craft CMS version 3.6.5.1:
 
 ```Shell
 docker build --build-arg CMS_VERSION=3.6.5.1 --build-arg CRAFT_VERSION=1.1.2 .
