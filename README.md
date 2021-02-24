@@ -113,11 +113,11 @@ This image aspires to track the latest build of Craft CMS 3.0. Use the following
 
 Argument        | Description
 ----------------|----------------------------------------
-`CRAFT_VERSION` | The major and minor version, e.g. `3.0`
-`CRAFT_BUILD`   | The build number, e.g. `18`
+`CMS_VERSION`   | The version number of craft cms to use, including the major, minor and build numbers, e.g. `3.6.5.1`
+`CRAFT_VERSION` | The version of the craft installer project to use, including the major, minor and build numbers, e.g. `1.1.2`
 
 For example, to build an image for Craft CMS version 3.0.18:
 
 ```Shell
-docker build --build-arg CRAFT_VERSION=3.0 --build-arg CRAFT_BUILD=18 .
+docker build --build-arg CMS_VERSION=3.6.5.1 --build-arg CRAFT_VERSION=1.1.2 .
 ```
