@@ -3,7 +3,7 @@ FROM php:7.3-apache
 LABEL maintainer = "Mark Hobson <mark.hobson@blackpepper.co.uk>"
 
 # Set craft installer and CMS versions
-ARG CMS_VERSION=3.6.7
+ARG CMS_VERSION=3.6.10
 ARG CRAFT_VERSION=1.1.2
 
 WORKDIR /var/www
