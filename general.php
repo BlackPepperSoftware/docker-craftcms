@@ -27,7 +27,7 @@ return [
         // Enable CSRF Protection (recommended)
         'enableCsrfProtection' => true,
 
-	'enableTemplateCaching' => (getenv('CRAFT_ENABLE_TEMPLATE_CACHING') ?: 'true') === 'true',
+        'enableTemplateCaching' => (getenv('CRAFT_ENABLE_TEMPLATE_CACHING') ?: 'true') === 'true',
 
         'maxUploadFileSize' => (int) (getenv('CRAFT_MAX_UPLOAD_FILE_SIZE') ?: '16777216'),
 
@@ -46,6 +46,8 @@ return [
 
         'useCompressedJs' => (getenv('CRAFT_USE_COMPRESSED_JS') ?: 'true') === 'true',
 
-        'userSessionDuration' => (int) (getenv('CRAFT_USER_SESSION_DURATION') ?: '3600')
+        'userSessionDuration' => (int) (getenv('CRAFT_USER_SESSION_DURATION') ?: '3600'),
+
+        'sendPoweredByHeader' => (getenv('CRAFT_SEND_POWERED_BY_HEADER') ?: 'true') === 'true'
     ],
 ];
